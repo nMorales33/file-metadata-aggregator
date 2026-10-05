@@ -1,0 +1,17 @@
+{
+  "name": "file-metadata-aggregator",
+  "version": "0.1.0",
+  "description": "Collects stat data across a directory tree and computes size totals, modification ranges, and type breakdowns.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
