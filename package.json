@@ -1,6 +1,6 @@
 {
   "name": "file-metadata-aggregator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Collects stat data across a directory tree and computes size totals, modification ranges, and type breakdowns.",
   "type": "module",
   "main": "src/index.js",
