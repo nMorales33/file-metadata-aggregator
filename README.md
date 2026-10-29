@@ -25,3 +25,10 @@ The trade-off is that this is a *stat-based* aggregator, not a content inspector
 - **Extension extraction is one rule, deliberately.** A leading dot is stripped first, so `.gitignore` has extension `gitignore`; `archive.tar.gz` has extension `gz`; `Makefile` has extension `""` (empty string). Extensions are lowercased. If you need MIME-aware classification, do that downstream.
 - **Non-file, non-dir, non-symlink entries** (FIFOs, sockets, block/char devices) are counted under `totalOther` and do not contribute to `totalSize` or mtime ranges, because their `size` field is not meaningful file data.
 - **Missing root path** is returned as an error in `summary.errors` with code `ENOENT`, not thrown, so the summary shape is always stable.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
